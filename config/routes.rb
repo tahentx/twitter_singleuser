@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # get '/auth/twitter/callback', to: 'sessions#create'
   # get '/auth/twitter', to: 
   get '/login', to: 'sessions#new', as: 'login'
-
+  get '/auth/twitter/callback', to: 'tweets#index'
 end
