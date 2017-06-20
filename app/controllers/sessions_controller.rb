@@ -1,8 +1,21 @@
 class SessionsController < ApplicationController
+
  def create
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
-    redirect_to '/'
+	if params[:denied]
+		redirect_to root_path
+	else
+		if !(User.find_by(username: auth_hash.info.email))
+		@user = User.create_user(auth_hash)
+	else
+		@user = User.find_by(username: auth_hash.info.email)
+	end
+	session[:user_id] = @user.id
+    redirect_to tweets_path
+  end
+
+  def destroy
+  	session[:user_id] = nil
+  	redirect_to root_path, alert: "You have logged out."
   end
 
   protected
