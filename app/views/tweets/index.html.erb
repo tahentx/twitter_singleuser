@@ -1,4 +1,10 @@
 <h1>Your Tweets</h1>
+<div>
+<%= form_for @tweet do |f| %>
+	<%= f.text_field :status %>
+	<%= f.submit %>
+<% end %>
+</div><br>
 <div id="tweets">
 <% @tweets.each do |tweet| %>
 	<p id="tweet"><%= tweet.status %></p>

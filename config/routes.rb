@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :tweets
-  root 'tweets#index'
+  root to: 'tweets#index'
+  match '/', to: 'tweets#create', via: [:post]
+  resources :tweets, only: [:index, :new, :create]
 end
