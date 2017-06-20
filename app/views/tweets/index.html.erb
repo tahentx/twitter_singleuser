@@ -2,7 +2,7 @@
 <div>
 <%= form_for @tweet do |f| %>
 	<% if @tweet.errors.any? %>
-		<p>There were <%= pluralize(@tweet.errors.count, 'error') %>  with your submission. Please revisit your input and try again. These were the issues:</p>
+		<p>There were <%= pluralize(@tweet.errors.count, 'error') %>  with your submission. Please revisit your input and try again. Keep in mind that all tweets need to be between 1 and 140 characters. These were the issues:</p>
 		<ul>
 			<% @tweet.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>
