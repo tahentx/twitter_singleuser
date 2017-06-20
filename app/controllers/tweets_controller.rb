@@ -17,13 +17,17 @@ class TweetsController < ApplicationController
 		end
 	end
 
-	def show
-	end
-
 	def edit
+		@tweet = Tweet.find_by(uuid: params[:id])
 	end
 
 	def update
+		@tweet = Tweet.find(params[:id])
+	    if @tweet.update_attributes(tweet_params)
+	      redirect_to root_path
+	    else
+	      render 'index'
+	    end
 	end
 
 	def destroy

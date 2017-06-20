@@ -1,4 +1,4 @@
-<h1>Your Tweets</h1>
+<h1>Edit Tweet</h1>
 <div>
 <%= form_for @tweet do |f| %>
 	<% if @tweet.errors.any? %>
@@ -13,11 +13,3 @@
 	<%= f.submit %>
 <% end %>
 </div><br>
-<div id="tweets">
-<% @tweets.each do |tweet| %>
-	<p id="tweet">
-	<%= tweet.status %>
-	<%= link_to 'edit', edit_tweet_path(tweet.uuid) %>
-	</p>
-<% end %>
-</div>
