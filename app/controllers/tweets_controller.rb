@@ -31,6 +31,10 @@ class TweetsController < ApplicationController
 	end
 
 	def destroy
+		@tweets = Tweet.all
+		@tweet = Tweet.find_by(uuid: params[:id])
+		@tweet.destroy
+		render 'index'
 	end
 	
 	private

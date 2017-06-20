@@ -1,4 +1,4 @@
-<h1>Edit Tweet</h1>
+<h3>Edit Tweet</h3>
 <div>
 <%= form_for @tweet do |f| %>
 	<% if @tweet.errors.any? %>
@@ -13,3 +13,6 @@
 	<%= f.submit %>
 <% end %>
 </div><br>
+<div>
+	<%= link_to 'delete', tweet_path(@tweet.uuid), method: :delete %>
+</div>
