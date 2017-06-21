@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
- def create
+  def create
  	if current_user
  		redirect_to new_tweet_path
  	end
- end
+  end
 
   def failure
 	redirect_to root_path, alert: "Your log in was denied"

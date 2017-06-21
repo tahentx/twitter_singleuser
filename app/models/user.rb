@@ -9,4 +9,5 @@ class User < ApplicationRecord
 		token: auth_hash.credentials.token,
 		secret: auth_hash.credentials.secret
 		)
+	end
 end
